@@ -1,0 +1,18 @@
+git checkout -b <branchname> / per creare un branch in locale
+
+git checkout <branchname> / per spostarmi di branch
+
+git branch / lista di tutti i branchs
+
+git branch -d <branchname> / eliminare un branch en locale
+
+git push origin <branchname> / manda il branch dentro al server git 
+
+git merge <branchname> / mette tutta l'informazione del branch selezionato nel branch in cui sei posizionato
+
+git push origin --delete <branch> / eliminare il branch in git 
+git push origin :<branchname>     / eliminare il branch in git
+
+
+
+

@@ -1,9 +1,28 @@
 <template>
   <div class="main">
     <ul class="nav-bar">
-      <li><button @click="homeClick">Home</button></li>
-      <li><button @click="chiSiamoClick">Chisiamo</button></li>
-      <li><button @click="contattaciClick">Contatti</button></li>
+      <li class="home" v-if="this.$store.state.pagina == 'Home'">
+        <ejs-button class="under" @click="homeClick">Home</ejs-button>
+      </li>
+      <li class="home" v-else>
+        <ejs-button @click="homeClick">Home</ejs-button>
+      </li>
+
+
+      <li class="chisiamo" v-if="this.$store.state.pagina == 'Chisiamo'">
+        <ejs-button class="under" @click="chiSiamoClick">Chisiamo</ejs-button>
+      </li>
+      <li class="chisiamo" v-else>
+        <ejs-button @click="chiSiamoClick">Chisiamo</ejs-button>
+      </li>
+
+
+      <li class="contatti" v-if="this.$store.state.pagina == 'Contattaci'">
+        <ejs-button class="under" @click="contattaciClick">Contatti</ejs-button>
+      </li>
+      <li class="contatti" v-else>
+        <ejs-button @click="contattaciClick">Contatti</ejs-button>
+      </li>
       
     </ul>
     <div class="layoutContent">
@@ -29,6 +48,7 @@ export default {
   methods:{
     homeClick(){
       this.$store.state.pagina = "Home"
+      
     },
     
     chiSiamoClick(){
@@ -40,6 +60,8 @@ export default {
     }
   }
   
+   
+
 
 };
 
@@ -60,5 +82,7 @@ export default {
     padding: 5% 5%;
     border: solid 1px black;
   }
-
+  .under{
+    text-decoration: underline;
+  }
 </style>
