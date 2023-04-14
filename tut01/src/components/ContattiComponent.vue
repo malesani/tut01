@@ -36,7 +36,7 @@ import axios from "axios";
                 this.show = true
                 this.userList = []
                 
-                axios.get("https://jsonplaceholder.typicode.com/users")
+                axios.get("https://jsonplaceholder.typicode.com/users", {headers: {"BSS-AZIENDA": "*"}})
         
                 .then(res => {
                     const stopLoad = () => {
