@@ -2,26 +2,26 @@
   <div class="main">
     <ul class="nav-bar">
       <li class="home" v-if="this.$store.state.pagina == 'Home'">
-        <ejs-button class="under" @click="homeClick">Home</ejs-button>
+        <button class="under" @click="homeClick">{{ $t("home") }}</button>
       </li>
       <li class="home" v-else>
-        <ejs-button @click="homeClick">Home</ejs-button>
+        <button @click="homeClick">{{ $t("home") }}</button>
       </li>
 
 
       <li class="chisiamo" v-if="this.$store.state.pagina == 'Chisiamo'">
-        <ejs-button class="under" @click="chiSiamoClick">Chisiamo</ejs-button>
+        <button class="under" @click="chiSiamoClick">{{ $t("chisiamo") }}</button>
       </li>
       <li class="chisiamo" v-else>
-        <ejs-button @click="chiSiamoClick">Chisiamo</ejs-button>
+        <button @click="chiSiamoClick">{{ $t("chisiamo") }}</button>
       </li>
 
 
       <li class="contatti" v-if="this.$store.state.pagina == 'Contattaci'">
-        <ejs-button class="under" @click="contattaciClick">Contatti</ejs-button>
+        <button class="under" @click="contattaciClick">{{ $t("contatti") }}</button>
       </li>
       <li class="contatti" v-else>
-        <ejs-button @click="contattaciClick">Contatti</ejs-button>
+        <button @click="contattaciClick">{{ $t("contatti") }}</button>
       </li>
       
     </ul>
@@ -60,9 +60,6 @@ export default {
     }
   }
   
-   
-
-
 };
 
 </script>

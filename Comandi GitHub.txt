@@ -14,5 +14,7 @@ git push origin --delete <branch> / eliminare il branch in git
 git push origin :<branchname>     / eliminare il branch in git
 
 
+git commit -m "" / commento il salvataggio
+git add --all / salvare le modifiche 
 
 

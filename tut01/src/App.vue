@@ -1,5 +1,12 @@
 <template>
   <div >
+    <select @change="changeLanguage">
+      <option v-for="(language,index) in languages" :key="index"> 
+        {{ language }}
+      </option>
+    </select>
+
+
    <LayoutComponent v-if="pagina === 'Home'">
     <HomeComponent />
   </LayoutComponent>
@@ -12,7 +19,8 @@
     <ContattiComponent />
   </LayoutComponent>
   </div>
-</template>
+  
+  </template>
 
 <script>
 import LayoutComponent from './components/LayoutComponent.vue';
@@ -20,22 +28,45 @@ import ContattiComponent from './components/ContattiComponent.vue';
 import ChisiamoComponent from './components/ChisiamoComponent.vue';
 import HomeComponent from './components/HomeComponent.vue'
 import Vue from 'vue';
+import VueI18n from 'vue-i18n'
 import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
 import { enableRipple } from '@syncfusion/ej2-base';
 enableRipple(true);
 Vue.use(ButtonPlugin);
+Vue.use(VueI18n)
+
 
 export default {
   name: 'App',
+  data(){
+    return{
+      languages: [
+        "en",
+        "fr",
+        "it"
+      ]
+    }
+  },
+
   components: {
     LayoutComponent,
     ContattiComponent,
     ChisiamoComponent,
     HomeComponent
   },
+  mounted(){
+    console.log("languageMounted", this.$i18n)
+  },
   computed:{
     pagina(){
       return this.$store.state.pagina;
+    }
+  },
+
+  methods:{
+    changeLanguage(option){
+      console.log(option)
+      this.$i18n.locale = option.target.value
     }
   }
 }
