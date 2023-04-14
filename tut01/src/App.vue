@@ -29,6 +29,7 @@ import ChisiamoComponent from './components/ChisiamoComponent.vue';
 import HomeComponent from './components/HomeComponent.vue'
 import Vue from 'vue';
 import VueI18n from 'vue-i18n'
+
 import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
 import { enableRipple } from '@syncfusion/ej2-base';
 enableRipple(true);
@@ -44,7 +45,8 @@ export default {
         "en",
         "fr",
         "it"
-      ]
+      ],
+      userList:[]
     }
   },
 
@@ -54,9 +56,8 @@ export default {
     ChisiamoComponent,
     HomeComponent
   },
-  mounted(){
-    console.log("languageMounted", this.$i18n)
-  },
+
+
   computed:{
     pagina(){
       return this.$store.state.pagina;
@@ -65,7 +66,6 @@ export default {
 
   methods:{
     changeLanguage(option){
-      console.log(option)
       this.$i18n.locale = option.target.value
     }
   }
