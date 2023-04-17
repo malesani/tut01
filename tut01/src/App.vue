@@ -18,6 +18,8 @@
   <LayoutComponent v-if="pagina === 'Contattaci'">
     <ContattiComponent />
   </LayoutComponent>
+
+
   </div>
   
   </template>

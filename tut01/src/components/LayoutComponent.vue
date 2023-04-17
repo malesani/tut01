@@ -24,6 +24,13 @@
         <button @click="contattaciClick">{{ $t("contatti") }}</button>
       </li>
       
+      <li class="contatti" v-if="this.$store.state.pagina == 'Grilla'">
+        <button class="under" @click="contattaciClick">{{ $t("grilla") }}</button>
+      </li>
+      <li class="contatti" v-else>
+        <button @click="contattaciClick">{{ $t("grilla") }}</button>
+      </li>
+
     </ul>
     <div class="layoutContent">
       <slot></slot>
@@ -57,6 +64,10 @@ export default {
 
     contattaciClick(){
       this.$store.state.pagina = "Contattaci" 
+    },
+    
+    grillaClick(){
+      this.$store.state.pagina = "Grilla" 
     }
   }
   

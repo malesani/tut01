@@ -1,4 +1,4 @@
-git checkout -b <branchname> / per creare un branch in locale
+git pgit checkout -b <branchname> / per creare un branch in locale
 
 git checkout <branchname> / per spostarmi di branch
 
