@@ -18,3 +18,8 @@ git commit -m "" / commento il salvataggio
 git add --all / salvare le modifiche 
 
 
+git fetch --all / Una mossa avanzata che consente di recuperare tutti i repository remoti registrati e i relativi branch
+
+git fetch <remote> <branch> / Come il comando descritto sopra, a eccezione del fatto che recupera solo il branch specificato.
+
+git fetch --all / Una mossa avanzata che consente di recuperare tutti i repository remoti registrati e i relativi branch

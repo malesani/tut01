@@ -1,8 +1,9 @@
 <template>
+    
     <div>
-        <button @click="callAPI">
+        <ejs-button @click.native="callAPI">
             conttati
-        </button>
+        </ejs-button>
         <div v-show="show == true">
             loading
         </div>
@@ -11,19 +12,50 @@
                 {{ user.name }}
             </li>
         </ul>
+        <div id="modalTarget" class="control-section; position:relative" style="height:350px;">
+
+            <!-- Render Button to open the modal Dialog -->
+            <ejs-button id='modalbtn' v-on:click.native="modalBtnClick">Open</ejs-button>
+
+            <!-- Render modal Dialog -->
+            <ejs-dialog ref="modalDialog"  
+            :isModal='isModal' 
+            :header='header' 
+            :target='target' 
+            :width='width' 
+            :animationSettings='animationSettings'
+            :content='content' 
+            :open="modalDlgOpen" 
+            :close="modalDlgClose" 
+            :overlayClick="overlayClick"
+            :visible="false">
+            </ejs-dialog>
+        </div>
+
     </div>
 
 </template>
 
 
 <script>
+import Vue from 'vue';
+import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
 import axios from "axios";
+Vue.use( DialogPlugin);
+
     export default {
         name: "ContattiComponent",
         data(){
            return {
                show : false, 
-               userList: []
+               userList: [],
+               target: "#modalTarget",
+                width: '335px',
+                header: 'Software Update',
+                content: 'Your current software version is up to date.',
+                isModal: true,
+                animationSettings: { effect: 'None' },
+                showModele : false, 
             }
         },
         props:{
@@ -52,12 +84,24 @@ import axios from "axios";
                 .catch(error => {
                     console.log(error)
                 })
+            },
+
+            modalBtnClick: function() {
+                
+                this.$refs.modalDialog.show();
+            },
+          
+            overlayClick: function() {
+                this.$refs.modalDialog.hide();
             }
         }
-
-   
-
     };
     
 
 </script>
+
+<style scoped>
+
+ 
+</style>
+
